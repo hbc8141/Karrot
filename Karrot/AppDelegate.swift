@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = nil
         UINavigationBar.appearance().backIndicatorImage = nil
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: 0), for: .default)
-//        UINavigationBar.appearance().backItem?.title = ""
         
         let navigationController:BaseNavigationController = BaseNavigationController(rootViewController: SplashController())
         self.window?.rootViewController = navigationController

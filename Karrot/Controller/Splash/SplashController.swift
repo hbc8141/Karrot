@@ -14,7 +14,7 @@ class SplashController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let mainController:MainController = MainController()
+        let mainController:StartController = StartController()
         let navController:BaseNavigationController = BaseNavigationController(rootViewController: mainController)
 
         let window = UIApplication.shared.windows.first ?? UIWindow()

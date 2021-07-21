@@ -16,8 +16,15 @@ class ItemCell: BaseTableViewCell {
             guard let item:Item = item else { return }
             
             self.itemNameLabel.text = item.title
-            self.itemContentLabel.text = item.content
+            self.addrAndTradeLocLabel.text = item.content
             self.priceLabel.text = item.priceFormat
+            self.itemImageView.loadImage(absoluteUrl: item.imageUrl)
+            
+            if let msgAndHeart:MsgAndHeart = item.msgAndHeart {
+                self.msgAndHeartLabel.attributedText = msgAndHeart.msgAndHeartText()
+            } else {
+                self.msgAndHeartLabel.attributedText = nil
+            }
         }
     }
     
@@ -31,11 +38,16 @@ class ItemCell: BaseTableViewCell {
     
     private let itemNameLabel:BaseLabel = BaseLabel()
     
-    private let itemContentLabel:BaseLabel = BaseLabel()
+    private let addrAndTradeLocLabel:BaseLabel = BaseLabel()
     
     private let priceLabel:BaseLabel = BaseLabel()
     
-    private let heartLabel:BaseLabel = BaseLabel()
+    private let msgAndHeartLabel:BaseLabel = {
+        let label:BaseLabel = BaseLabel()
+        label.textAlignment = .right
+        
+        return label
+    }()
     
     // MARK: - Life Cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -43,7 +55,7 @@ class ItemCell: BaseTableViewCell {
         
         self.contentView.addSubviews(views: [
             self.itemImageView, self.itemNameLabel,
-            self.itemContentLabel, self.priceLabel
+            self.addrAndTradeLocLabel, self.priceLabel, self.msgAndHeartLabel
         ])
         
         setupLayouts()
@@ -57,22 +69,29 @@ class ItemCell: BaseTableViewCell {
     override func setupLayouts() {
         NSLayoutConstraint.activate([
             self.itemImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
-            self.itemImageView.widthAnchor.constraint(equalToConstant: 100),
-            self.itemImageView.heightAnchor.constraint(equalToConstant: 100),
+            self.itemImageView.widthAnchor.constraint(equalToConstant: 130),
+            self.itemImageView.heightAnchor.constraint(equalToConstant: 130),
             self.itemImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
 
             self.itemNameLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
             self.itemNameLabel.leadingAnchor.constraint(equalTo: self.itemImageView.trailingAnchor, constant: 15),
             self.itemNameLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10),
+            self.itemNameLabel.bottomAnchor.constraint(equalTo: self.addrAndTradeLocLabel.bottomAnchor, constant: 10),
             
-            self.itemContentLabel.topAnchor.constraint(equalTo: self.itemNameLabel.bottomAnchor, constant: 10),
-            self.itemContentLabel.leadingAnchor.constraint(equalTo: self.itemImageView.trailingAnchor, constant: 15),
-            self.itemContentLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10),
+            self.addrAndTradeLocLabel.heightAnchor.constraint(equalToConstant: 25),
+            self.addrAndTradeLocLabel.bottomAnchor.constraint(equalTo: self.priceLabel.topAnchor, constant: 10),
+            self.addrAndTradeLocLabel.leadingAnchor.constraint(equalTo: self.itemImageView.trailingAnchor, constant: 15),
+            self.addrAndTradeLocLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10),
             
-            self.priceLabel.topAnchor.constraint(equalTo: self.itemContentLabel.bottomAnchor, constant: 10),
+            self.priceLabel.heightAnchor.constraint(equalToConstant: 50),
             self.priceLabel.leadingAnchor.constraint(equalTo: self.itemImageView.trailingAnchor, constant: 15),
             self.priceLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10),
-            self.priceLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -15),
+            self.priceLabel.bottomAnchor.constraint(greaterThanOrEqualTo: self.msgAndHeartLabel.topAnchor, constant: 15),
+            
+            self.msgAndHeartLabel.heightAnchor.constraint(equalToConstant: 25),
+            self.msgAndHeartLabel.leadingAnchor.constraint(equalTo: self.itemImageView.trailingAnchor, constant: 15),
+            self.msgAndHeartLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10),
+            self.msgAndHeartLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -15)
         ])
     }
     

@@ -16,6 +16,7 @@ class MainController: BaseController {
         let tableView:BaseTableView = BaseTableView()
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(valueChangedRefreshControl(_:)), for: .valueChanged)
+        refreshControl.tintColor = .orange
         tableView.refreshControl = refreshControl
         
         return tableView
@@ -25,17 +26,35 @@ class MainController: BaseController {
         let button:BaseButton = BaseButton()
         button.layer.masksToBounds = false
         button.layer.cornerRadius = 25
-        button.backgroundColor = .orange
-        button.setTitle("+", for: .normal)
+        button.setImage(UIImage.fontAwesomeIcon(name: .plus, style: .solid, textColor: .white, size: CGSize(width: 25, height: 25)), for: .normal)
 
         return button
     }()
 
     let items:[Item] = [
-        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉통", imageUrl: "https://st.depositphotos.com/1428083/2946/i/950/depositphotos_29460297-stock-photo-bird-cage.jpg", price: 45000, heart: nil),
-        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉통", imageUrl: "http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg", price: 45000, heart: nil),
-        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉통", imageUrl: "http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg", price: 45000, heart: nil)
+        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉동", imageUrl: "https://st.depositphotos.com/1428083/2946/i/950/depositphotos_29460297-stock-photo-bird-cage.jpg", price: 45000, msgAndHeart: MsgAndHeart(msgCnt: 1, heartCnt: nil)),
+        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉동", imageUrl: "http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg", price: 45000, msgAndHeart: nil),
+        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉동", imageUrl: "http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg", price: 45000, msgAndHeart: MsgAndHeart(msgCnt: 1, heartCnt: 4)),
+        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉동", imageUrl: "http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg", price: 45000, msgAndHeart: MsgAndHeart(msgCnt: nil, heartCnt: 4))
     ]
+
+    private let barButtonStackView:UIStackView = {
+        let iconSize:CGSize = CGSize(width: 30, height: 30)
+        
+        let searchButton = UIButton(type: .custom)
+        searchButton.setImage(UIImage.fontAwesomeIcon(name: .search, style: .solid, textColor: .black, size: iconSize), for: .normal)
+        
+        let menuButton = UIButton(type: .custom)
+        menuButton.setImage(UIImage.fontAwesomeIcon(name: .alignJustify, style: .solid, textColor: .black, size: iconSize), for: .normal)
+        
+        let alarmButton = UIButton(type: .custom)
+        alarmButton.setImage(UIImage.fontAwesomeIcon(name: .bell, style: .regular, textColor: .black, size: iconSize), for: .normal)
+        
+        let stackView:UIStackView = UIStackView(arrangedSubviews: [searchButton, menuButton, alarmButton])
+        stackView.spacing = 8
+        
+        return stackView
+    }()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -44,6 +63,8 @@ class MainController: BaseController {
         self.view.addSubviews(views: [
             self.itemTableView, self.floatingButton
         ])
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.barButtonStackView)
 
         self.setupLayouts()
         self.bindUI()
@@ -69,6 +90,18 @@ class MainController: BaseController {
     }
     
     // MARK: - Function
+    @objc private func touchUpSearchButton(_ sender: UIBarButtonItem) -> Void {
+        
+    }
+    
+    @objc private func touchUpMenuButton(_ sender: UIBarButtonItem) -> Void {
+        
+    }
+    
+    @objc private func touchUpAlarmButton(_ sender: UIBarButtonItem) -> Void {
+        
+    }
+    
     fileprivate func setTableView() {
         self.itemTableView.register(ItemCell.self, forCellReuseIdentifier: "cell")
         self.itemTableView.rx.setDelegate(self).disposed(by: self.disposeBag)
