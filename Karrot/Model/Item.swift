@@ -13,4 +13,15 @@ struct Item: Codable {
     let imageUrl:String
     let price:Int
     let heart:Int?
+    
+    var priceFormat:String {
+        let formatter:NumberFormatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        
+        let currencyPrice:NSNumber = NSNumber(value: price)
+        
+        let priceString:String = formatter.string(from: currencyPrice) ?? "0"
+        
+        return "\(priceString) 원"
+    }
 }

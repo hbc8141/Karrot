@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import RxSwift
 
 class BaseController: UIViewController {
     
+    // MARK: - Properties
     private let networkNotConnectedView:NetworkNotConnectedView = NetworkNotConnectedView()
+    
+    var disposeBag:DisposeBag = DisposeBag()
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -23,9 +27,15 @@ class BaseController: UIViewController {
     }
     
     // MARK: - Function
-    func bindUI() -> Void {
-        
-    }
+    func bindUI() -> Void {}
     
     func setupLayouts() -> Void {}
+    
+    func pushViewController(_ controller: BaseController) -> Void {
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func popViewController() -> Void {
+        self.navigationController?.popViewController(animated: true)
+    }
 }

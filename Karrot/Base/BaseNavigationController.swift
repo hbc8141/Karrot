@@ -12,7 +12,10 @@ class BaseNavigationController: UINavigationController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        
+        
         self.view.backgroundColor = .white
         // Do any additional setup after loading the view.
     }

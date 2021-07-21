@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = nil
+        UINavigationBar.appearance().backIndicatorImage = nil
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: 0), for: .default)
+//        UINavigationBar.appearance().backItem?.title = ""
+        
         let navigationController:BaseNavigationController = BaseNavigationController(rootViewController: SplashController())
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()

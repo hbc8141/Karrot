@@ -11,7 +11,7 @@ import FontAwesome_swift
 class BaseButton: UIButton {
 
     // MARK: - Initialization
-    init(title: String? = nil, backgroundColor: UIColor? = .white) {
+    init(title: String? = nil, backgroundColor: UIColor? = .orange) {
         super.init(frame: .zero)
 
         self.translatesAutoresizingMaskIntoConstraints = false

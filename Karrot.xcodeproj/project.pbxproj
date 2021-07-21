@@ -36,6 +36,11 @@
 		CE53A7D026A1C32400BEF9D4 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53A7CF26A1C32400BEF9D4 /* SearchController.swift */; };
 		CE53A7DE26A1C6F900BEF9D4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53A7DD26A1C6F900BEF9D4 /* Item.swift */; };
 		CE53A7E926A1C97500BEF9D4 /* MainController+tableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53A7E826A1C97400BEF9D4 /* MainController+tableview.swift */; };
+		CE53A7EF26A3CE5B00BEF9D4 /* ItemDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53A7EE26A3CE5B00BEF9D4 /* ItemDetailController.swift */; };
+		CE53A7F726A3D00B00BEF9D4 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53A7F626A3D00B00BEF9D4 /* UIImageView.swift */; };
+		CEAEA9F426A6A6990015BAA0 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEA9F326A6A6990015BAA0 /* BaseCollectionView.swift */; };
+		CEAEA9F926A6A7860015BAA0 /* ItemImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEA9F826A6A7860015BAA0 /* ItemImageCell.swift */; };
+		CEAEAA0126A6A7AB0015BAA0 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEAA0026A6A7AB0015BAA0 /* BaseCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +78,7 @@
 		CE53A72126A1109A00BEF9D4 /* KarrotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KarrotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE53A72526A1109A00BEF9D4 /* KarrotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KarrotUITests.swift; sourceTree = "<group>"; };
 		CE53A72726A1109A00BEF9D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE53A73926A110ED00BEF9D4 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		CE53A73926A110ED00BEF9D4 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CE53A73F26A1110500BEF9D4 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		CE53A74E26A111B100BEF9D4 /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
 		CE53A75926A1120A00BEF9D4 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -93,6 +98,11 @@
 		CE53A7CF26A1C32400BEF9D4 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		CE53A7DD26A1C6F900BEF9D4 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		CE53A7E826A1C97400BEF9D4 /* MainController+tableview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainController+tableview.swift"; sourceTree = "<group>"; };
+		CE53A7EE26A3CE5B00BEF9D4 /* ItemDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailController.swift; sourceTree = "<group>"; };
+		CE53A7F626A3D00B00BEF9D4 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		CEAEA9F326A6A6990015BAA0 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
+		CEAEA9F826A6A7860015BAA0 /* ItemImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImageCell.swift; sourceTree = "<group>"; };
+		CEAEAA0026A6A7AB0015BAA0 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +220,7 @@
 		CE53A75326A111DC00BEF9D4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CE53A7ED26A3CE3C00BEF9D4 /* ItemDetail */,
 				CE53A7C626A1C2FC00BEF9D4 /* Search */,
 				CE53A76D26A1126500BEF9D4 /* Network */,
 				CE53A75826A111FA00BEF9D4 /* Main */,
@@ -248,6 +259,8 @@
 				CE53A79826A1A93500BEF9D4 /* BaseTableController.swift */,
 				CE53A79D26A1A95300BEF9D4 /* BaseTableView.swift */,
 				CE53A7A726A1AAF400BEF9D4 /* BaseTableViewCell.swift */,
+				CEAEA9F326A6A6990015BAA0 /* BaseCollectionView.swift */,
+				CEAEAA0026A6A7AB0015BAA0 /* BaseCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -272,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				CE53A7BE26A1C1C100BEF9D4 /* UIView.swift */,
+				CE53A7F626A3D00B00BEF9D4 /* UIImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -290,6 +304,15 @@
 				CE53A7DD26A1C6F900BEF9D4 /* Item.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CE53A7ED26A3CE3C00BEF9D4 /* ItemDetail */ = {
+			isa = PBXGroup;
+			children = (
+				CE53A7EE26A3CE5B00BEF9D4 /* ItemDetailController.swift */,
+				CEAEA9F826A6A7860015BAA0 /* ItemImageCell.swift */,
+			);
+			path = ItemDetail;
 			sourceTree = "<group>";
 		};
 		E6738783A1FA0AB4B60672EC /* Frameworks */ = {
@@ -475,8 +498,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE53A70526A1109900BEF9D4 /* ViewController.swift in Sources */,
+				CE53A7F726A3D00B00BEF9D4 /* UIImageView.swift in Sources */,
 				CE53A78026A112AC00BEF9D4 /* BaseLabel.swift in Sources */,
 				CE53A7A326A1AA4B00BEF9D4 /* ItemCell.swift in Sources */,
+				CEAEAA0126A6A7AB0015BAA0 /* BaseCell.swift in Sources */,
+				CE53A7EF26A3CE5B00BEF9D4 /* ItemDetailController.swift in Sources */,
 				CE53A7A826A1AAF400BEF9D4 /* BaseTableViewCell.swift in Sources */,
 				CE53A75A26A1120A00BEF9D4 /* MainController.swift in Sources */,
 				CE53A70126A1109900BEF9D4 /* AppDelegate.swift in Sources */,
@@ -487,12 +513,14 @@
 				CE53A79E26A1A95300BEF9D4 /* BaseTableView.swift in Sources */,
 				CE53A74F26A111B100BEF9D4 /* SplashController.swift in Sources */,
 				CE53A7BF26A1C1C100BEF9D4 /* UIView.swift in Sources */,
+				CEAEA9F926A6A7860015BAA0 /* ItemImageCell.swift in Sources */,
 				CE53A77E26A112AC00BEF9D4 /* BaseButton.swift in Sources */,
 				CE53A79126A1A80D00BEF9D4 /* BaseNavigationController.swift in Sources */,
 				CE53A70B26A1109900BEF9D4 /* Karrot.xcdatamodeld in Sources */,
 				CE53A77F26A112AC00BEF9D4 /* BaseImageView.swift in Sources */,
 				CE53A79926A1A93500BEF9D4 /* BaseTableController.swift in Sources */,
 				CE53A76F26A1128700BEF9D4 /* NetworkNotConnectedView.swift in Sources */,
+				CEAEA9F426A6A6990015BAA0 /* BaseCollectionView.swift in Sources */,
 				CE53A77726A1129400BEF9D4 /* BaseView.swift in Sources */,
 				CE53A7D026A1C32400BEF9D4 /* SearchController.swift in Sources */,
 				CE53A76626A1123C00BEF9D4 /* BaseController.swift in Sources */,

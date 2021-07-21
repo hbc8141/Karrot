@@ -12,7 +12,14 @@ import RxCocoa
 class MainController: BaseController {
 
     // MARK: - Properties
-    private let itemTableView:BaseTableView = BaseTableView()
+    private let itemTableView:BaseTableView = {
+        let tableView:BaseTableView = BaseTableView()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(valueChangedRefreshControl(_:)), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        
+        return tableView
+    }()
     
     private let floatingButton:BaseButton = {
         let button:BaseButton = BaseButton()
@@ -25,10 +32,10 @@ class MainController: BaseController {
     }()
 
     let items:[Item] = [
-        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉통", imageUrl: "https://lh3.googleusercontent.com/proxy/TcqXq_WWuapLILeUi3cL2aZYO_ZkJhXxkn_mFvpiZbWFNli1dvLXrEsDqWHXHVjs2_7ynwEYRDtEtDtYo1PhRT12B_wgqF28538WP_Q11hqB_XPt5Q", price: 45000, heart: nil)
+        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉통", imageUrl: "https://st.depositphotos.com/1428083/2946/i/950/depositphotos_29460297-stock-photo-bird-cage.jpg", price: 45000, heart: nil),
+        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉통", imageUrl: "http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg", price: 45000, heart: nil),
+        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉통", imageUrl: "http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg", price: 45000, heart: nil)
     ]
-
-    private let disposeBag:DisposeBag = DisposeBag()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -59,7 +66,6 @@ class MainController: BaseController {
     }
     
     override func bindUI() {
-//        self.viewModel.items.
     }
     
     // MARK: - Function
@@ -70,18 +76,15 @@ class MainController: BaseController {
         let cellType = Observable.of(items)
         
         cellType.bind(to: itemTableView.rx.items(cellIdentifier: "cell", cellType: ItemCell.self)) { (row:Int, item:Item, cell:ItemCell) in
-            cell.itemNameLabel.text = item.title
-            cell.itemContentLabel.text = item.content
-            cell.priceLabel.text = "45000"
-            
-            if let url:URL = URL(string: item.imageUrl) {
-                do {
-                    let imageData:Data = try Data(contentsOf: url)
-                    cell.imageView?.image = UIImage(data: imageData)
-                } catch { }
-            }
+            cell.item = item
         }.disposed(by: self.disposeBag)
         
+        self.itemTableView.reloadData()
+    }
+    
+    // MARK: - Objc Function
+    @objc private func valueChangedRefreshControl(_ sender: UIRefreshControl) -> Void {
+        sender.endRefreshing()
         self.itemTableView.reloadData()
     }
 }

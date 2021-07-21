@@ -11,15 +11,31 @@ import UIKit
 class ItemCell: BaseTableViewCell {
     
     // MARK: - Properties
-    let itemImageView:BaseImageView = BaseImageView()
+    var item:Item? {
+        didSet {
+            guard let item:Item = item else { return }
+            
+            self.itemNameLabel.text = item.title
+            self.itemContentLabel.text = item.content
+            self.priceLabel.text = item.priceFormat
+        }
+    }
     
-    let itemNameLabel:BaseLabel = BaseLabel()
+    private let itemImageView:BaseImageView = {
+        let imageView:BaseImageView = BaseImageView()
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 15
+        
+        return imageView
+    }()
     
-    let itemContentLabel:BaseLabel = BaseLabel()
+    private let itemNameLabel:BaseLabel = BaseLabel()
     
-    let priceLabel:BaseLabel = BaseLabel()
+    private let itemContentLabel:BaseLabel = BaseLabel()
     
-    let heartLabel:BaseLabel = BaseLabel()
+    private let priceLabel:BaseLabel = BaseLabel()
+    
+    private let heartLabel:BaseLabel = BaseLabel()
     
     // MARK: - Life Cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
