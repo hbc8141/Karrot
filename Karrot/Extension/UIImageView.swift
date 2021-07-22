@@ -23,13 +23,7 @@ extension UIImageView {
 }
 
 extension UIImage {
-    static func loadImage(url: URL) -> UIImage? {
-        do {
-            let imageData:Data = try Data(contentsOf: url)
-            return UIImage(data: imageData)
-        } catch {
-            print(error.localizedDescription)
-            return nil
-        }
+    static func image(name: Image) -> UIImage? {
+        return UIImage(named: name.rawValue) ?? UIImage()
     }
 }

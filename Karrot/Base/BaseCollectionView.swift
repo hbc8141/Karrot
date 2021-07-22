@@ -10,7 +10,7 @@ import UIKit
 class BaseCollectionView: UICollectionView {
 
     // MARK: - Life Cycle
-    init(scrollDirection: UICollectionView.ScrollDirection) {
+    init(scrollDirection: UICollectionView.ScrollDirection = .vertical) {
         let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = scrollDirection
         

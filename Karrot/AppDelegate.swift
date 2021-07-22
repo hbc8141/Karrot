@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().backIndicatorImage = nil
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: 0), for: .default)
         
-        let navigationController:BaseNavigationController = BaseNavigationController(rootViewController: SplashController())
+        let navigationController:BaseNavigationController = BaseNavigationController(rootViewController: MainController())
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
         

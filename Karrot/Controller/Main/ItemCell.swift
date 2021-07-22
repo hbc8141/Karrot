@@ -18,7 +18,10 @@ class ItemCell: BaseTableViewCell {
             self.itemNameLabel.text = item.title
             self.addrAndTradeLocLabel.text = item.content
             self.priceLabel.text = item.priceFormat
-            self.itemImageView.loadImage(absoluteUrl: item.imageUrl)
+            
+            if let mainImageUrl:String = item.imageUrl.first {
+                self.itemImageView.loadImage(absoluteUrl: mainImageUrl)
+            }
             
             if let msgAndHeart:MsgAndHeart = item.msgAndHeart {
                 self.msgAndHeartLabel.attributedText = msgAndHeart.msgAndHeartText()

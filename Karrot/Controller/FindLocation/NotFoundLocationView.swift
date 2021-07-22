@@ -10,7 +10,7 @@ import UIKit
 class NotFoundLocationView: BaseView {
 
     // MARK: - Properties
-    private let houseImageView:BaseImageView = BaseImageView(image: nil, contentMode: .scaleAspectFit)
+    private let houseImageView:BaseImageView = BaseImageView(image: UIImage.image(name: .house))
     
     private let titleLabel:BaseLabel = BaseLabel(title: "현재 위치로 동네를 받아오지 못했어요.\n내 동네 이름으로 검색해보세요!", textColor: .gray, textAlignment: .center)
     
@@ -48,8 +48,8 @@ class NotFoundLocationView: BaseView {
         NSLayoutConstraint.activate([
             self.houseImageView.topAnchor.constraint(equalTo: self.topAnchor),
             self.houseImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.houseImageView.widthAnchor.constraint(equalToConstant: 150),
-            self.houseImageView.heightAnchor.constraint(equalToConstant: 150),
+            self.houseImageView.widthAnchor.constraint(equalToConstant: 75),
+            self.houseImageView.heightAnchor.constraint(equalToConstant: 75),
             
             self.titleLabel.topAnchor.constraint(equalTo: self.houseImageView.bottomAnchor, constant: 10),
             self.titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),

@@ -12,12 +12,13 @@ import RxCocoa
 class MainController: BaseController {
 
     // MARK: - Properties
-    private let itemTableView:BaseTableView = {
+    private lazy var itemTableView:BaseTableView = {
         let tableView:BaseTableView = BaseTableView()
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(valueChangedRefreshControl(_:)), for: .valueChanged)
         refreshControl.tintColor = .orange
         tableView.refreshControl = refreshControl
+        tableView.register(ItemCell.self, forCellReuseIdentifier: "cell")
         
         return tableView
     }()
@@ -32,10 +33,19 @@ class MainController: BaseController {
     }()
 
     let items:[Item] = [
-        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉동", imageUrl: "https://st.depositphotos.com/1428083/2946/i/950/depositphotos_29460297-stock-photo-bird-cage.jpg", price: 45000, msgAndHeart: MsgAndHeart(msgCnt: 1, heartCnt: nil)),
-        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉동", imageUrl: "http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg", price: 45000, msgAndHeart: nil),
-        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉동", imageUrl: "http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg", price: 45000, msgAndHeart: MsgAndHeart(msgCnt: 1, heartCnt: 4)),
-        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉동", imageUrl: "http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg", price: 45000, msgAndHeart: MsgAndHeart(msgCnt: nil, heartCnt: 4))
+        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉동", imageUrl: [
+            "https://st.depositphotos.com/1428083/2946/i/950/depositphotos_29460297-stock-photo-bird-cage.jpg",
+            "http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg"
+        ], price: 45000, msgAndHeart: MsgAndHeart(msgCnt: 1, heartCnt: nil)),
+        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉동", imageUrl: [
+            "http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg"
+        ], price: 45000, msgAndHeart: MsgAndHeart(msgCnt: 1, heartCnt: 4)),
+        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉동", imageUrl: [
+            "http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg"
+        ], price: 45000, msgAndHeart: MsgAndHeart(msgCnt: 1, heartCnt: nil)),
+        Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉동", imageUrl: [
+            "http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg"
+        ], price: 45000, msgAndHeart: MsgAndHeart(msgCnt: nil, heartCnt: 4))
     ]
 
     private let barButtonStackView:UIStackView = {
@@ -103,7 +113,6 @@ class MainController: BaseController {
     }
     
     fileprivate func setTableView() {
-        self.itemTableView.register(ItemCell.self, forCellReuseIdentifier: "cell")
         self.itemTableView.rx.setDelegate(self).disposed(by: self.disposeBag)
 
         let cellType = Observable.of(items)

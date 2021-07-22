@@ -7,19 +7,42 @@
 
 import UIKit
 
-class SplashController: UIViewController {
+class SplashController: BaseController {
 
-    private let imageView:BaseImageView = BaseImageView(image: nil, contentMode: .scaleAspectFit)
+    // MARK: - Properties
+    private let imageView:BaseImageView = BaseImageView(image: UIImage.image(name: .carrot), contentMode: .scaleAspectFit)
     
+    private let loadingIndicator:UIActivityIndicatorView = UIActivityIndicatorView(style: .medium)
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let mainController:StartController = StartController()
         let navController:BaseNavigationController = BaseNavigationController(rootViewController: mainController)
+        
+        self.view.addSubviews(views: [
+            self.imageView, self.loadingIndicator
+        ])
+        
+        self.hideNavBar()
+        self.setupLayouts()
+        self.loadingIndicator.startAnimating()
 
-        let window = UIApplication.shared.windows.first ?? UIWindow()
-        window.rootViewController = navController
-        window.makeKeyAndVisible()
-        // Do any additional setup after loading the view.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            let window = UIApplication.shared.windows.first ?? UIWindow()
+            window.rootViewController = navController
+            window.makeKeyAndVisible()
+        })
+    }
+    
+    // MARK: - Function
+    override func setupLayouts() {
+        NSLayoutConstraint.activate([
+            self.imageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.imageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            self.imageView.widthAnchor.constraint(equalToConstant: 250),
+            self.imageView.heightAnchor.constraint(equalToConstant: 250),
+        ])
     }
 }

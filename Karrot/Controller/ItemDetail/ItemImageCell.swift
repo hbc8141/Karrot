@@ -10,11 +10,19 @@ import UIKit
 class ItemImageCell: BaseCollectionViewCell {
     
     // MARK: - Properties
+    var imageUrl:String? {
+        didSet {
+            guard let imageUrl:String = imageUrl else { return }
+            
+            self.itemImageView.loadImage(absoluteUrl: imageUrl)
+        }
+    }
+
     private let itemImageView:BaseImageView = BaseImageView()
     
     // MARK: - Life Cycle
-    override init() {
-        super.init()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         self.contentView.addSubviews(views: [
             self.itemImageView

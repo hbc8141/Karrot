@@ -10,7 +10,7 @@ import UIKit
 class BaseCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Life Cycle
-    init() {
+    override init(frame: CGRect) {
         super.init(frame: .zero)
         
         self.backgroundColor = .white

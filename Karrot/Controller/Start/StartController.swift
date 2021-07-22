@@ -12,7 +12,7 @@ import RxCocoa
 class StartController: BaseController {
     
     // MARK: - Properties
-    private let imageView:BaseImageView = BaseImageView()
+    private let imageView:BaseImageView = BaseImageView(image: UIImage.image(name: .location))
 
     private let titleLabel:BaseLabel = {
         let label:BaseLabel = BaseLabel(title: "우리 동네 중고 직거래 당근마켓", textAlignment: .center)

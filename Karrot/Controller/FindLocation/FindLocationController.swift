@@ -17,7 +17,13 @@ class FindLocationController: BaseController {
         return findMyLocationButton
     }()
     
-    private let addressTableView:BaseTableView = BaseTableView()
+    private lazy var addressTableView:BaseTableView = {
+        let tableView:BaseTableView = BaseTableView()
+        tableView.register(FindLocationCell.self, forCellReuseIdentifier: "cell")
+        tableView.isHidden = true
+
+        return tableView
+    }()
     
     private let notFoundLocationView:NotFoundLocationView = NotFoundLocationView()
     
@@ -32,23 +38,25 @@ class FindLocationController: BaseController {
         return textField
     }()
     
-    private let findLocation:[FindStreet] = [
+    private let findStreet:[FindStreet] = [
         FindStreet(mainStreet: "부산시 남구 용호동", subStreet: nil),
         FindStreet(mainStreet: "서울시 구로구 오류동", subStreet: nil),
+        FindStreet(mainStreet: "강원도 고성군 거진읍", subStreet: "거진리, 냉천리, 대대리"),
     ]
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.addSubviews(views: [
-            self.findMyLocationButton, self.addressTableView, self.notFoundLocationView
-        ])
-        
         self.navigationItem.titleView = self.searchTextField
         
-        self.addressTableView.isHidden = true
-        
+        self.view.addSubviews(views: [
+            self.findMyLocationButton,
+            self.addressTableView,
+            self.notFoundLocationView
+        ])
+
+        self.showNavBar()
         self.setupLayouts()
         self.bindUI()
     }
@@ -66,7 +74,7 @@ class FindLocationController: BaseController {
             self.addressTableView.trailingAnchor.constraint(equalTo: self.findMyLocationButton.trailingAnchor),
             self.addressTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             
-            self.notFoundLocationView.topAnchor.constraint(equalTo: self.findMyLocationButton.bottomAnchor, constant: 10),
+            self.notFoundLocationView.topAnchor.constraint(equalTo: self.findMyLocationButton.bottomAnchor, constant: 75),
             self.notFoundLocationView.leadingAnchor.constraint(equalTo: self.findMyLocationButton.leadingAnchor),
             self.notFoundLocationView.trailingAnchor.constraint(equalTo: self.findMyLocationButton.trailingAnchor),
             self.notFoundLocationView.heightAnchor.constraint(equalToConstant: 250)
@@ -91,6 +99,32 @@ class FindLocationController: BaseController {
         searchMyTownButtonOb
             .map { true }
             .bind(to: self.notFoundLocationView.rx.isHidden)
+            .disposed(by: self.disposeBag)
+        
+        self.findMyLocationButton.rx.tap
+            .asDriver()
+            .drive(onNext: {
+                self.pushViewController(MainController())
+            }).disposed(by: self.disposeBag)
+        
+        let searchTextOb = self.searchTextField.rx.text.orEmpty
+            .withLatestFrom(Observable.of(self.findStreet)) { ($0, $1) }
+            .flatMap { (text, streets) -> Observable<[FindStreet]> in
+                let filter:[FindStreet] = streets.filter { $0.mainStreet.contains(text) }
+                
+                return .just(filter)
+            }.share()
+            
+        searchTextOb.bind(to: self.addressTableView.rx.items(cellIdentifier: "cell", cellType: FindLocationCell.self)) { (row:Int, street:FindStreet, cell:FindLocationCell) in
+                cell.findStreet = street
+            }.disposed(by: self.disposeBag)
+        
+        let isFindStreetOb = searchTextOb.map { $0.count > 0 ? false : true }.share()
+            
+        isFindStreetOb.bind(to: self.addressTableView.rx.isHidden)
+            .disposed(by: self.disposeBag)
+        
+        isFindStreetOb.map { !$0 } .bind(to: self.notFoundLocationView.rx.isHidden)
             .disposed(by: self.disposeBag)
     }
 }

@@ -31,6 +31,14 @@ class BaseController: UIViewController {
     
     func setupLayouts() -> Void {}
     
+    func hideNavBar() -> Void {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    func showNavBar() -> Void {
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     func pushViewController(_ controller: BaseController) -> Void {
         self.navigationController?.pushViewController(controller, animated: true)
     }
