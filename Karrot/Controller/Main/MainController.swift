@@ -35,7 +35,7 @@ class MainController: BaseController {
     let items:[Item] = [
         Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉동", imageUrl: [
             "https://st.depositphotos.com/1428083/2946/i/950/depositphotos_29460297-stock-photo-bird-cage.jpg",
-            "http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg"
+            "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1953&q=80"
         ], price: 45000, msgAndHeart: MsgAndHeart(msgCnt: 1, heartCnt: nil)),
         Item(title: "5버튼 슬림핏 코튼 반팔 카라티셔츠", content: "개봉동", imageUrl: [
             "http://www.foodnmed.com/news/photo/201903/18296_3834_4319.jpg"
@@ -74,7 +74,7 @@ class MainController: BaseController {
             self.itemTableView, self.floatingButton
         ])
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.barButtonStackView)
+        self.setRightButton(UIBarButtonItem(customView: self.barButtonStackView))
 
         self.setupLayouts()
         self.bindUI()

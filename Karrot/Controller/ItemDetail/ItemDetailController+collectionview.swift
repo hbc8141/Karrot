@@ -7,7 +7,8 @@
 
 import UIKit
 
-extension ItemDetailController: UICollectionViewDelegateFlowLayout {
+extension ItemDetailController:
+    UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let frame:CGRect = collectionView.frame
 
@@ -20,5 +21,20 @@ extension ItemDetailController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let item:Item = item else { return }
+        
+        let pageWidth:CGFloat = self.itemImageListView.itemImageCollectionView.frame.size.width
+        let currentPage:Int = Int(self.itemImageListView.itemImageCollectionView.contentOffset.x / pageWidth)
+
+        if currentPage == 0 && scrollView.contentOffset.x <= 0 {
+            scrollView.contentOffset.x = 0
+        }
+        
+        else if currentPage == item.imageUrl.count - 1 && scrollView.contentOffset.x > pageWidth {
+            scrollView.contentOffset.x = pageWidth
+        }
     }
 }

@@ -12,11 +12,26 @@ import RxCocoa
 class ItemDetailController: BaseController {
 
     // MARK: - Properties
-    private let itemImageListView:ItemImageListView = ItemImageListView()
-    
-    private let pageControl:UIPageControl = UIPageControl()
+    let itemImageListView:ItemImageListView = ItemImageListView()
 
     private let itemTitleLabel:BaseLabel = BaseLabel()
+    
+    private let tableview:BaseTableView = BaseTableView()
+    
+    private let barButtonStackView:UIStackView = {
+        let iconSize:CGSize = CGSize(width: 30, height: 30)
+        
+        let shareButton = UIButton(type: .custom)
+        shareButton.setImage(UIImage.fontAwesomeIcon(name: .shareAlt, style: .solid, textColor: .white, size: iconSize), for: .normal)
+        
+        let ellipsisVButton = UIButton(type: .custom)
+        ellipsisVButton.setImage(UIImage.fontAwesomeIcon(name: .ellipsisV, style: .solid, textColor: .white, size: iconSize), for: .normal)
+        
+        let stackView:UIStackView = UIStackView(arrangedSubviews: [shareButton, ellipsisVButton])
+        stackView.spacing = 8
+        
+        return stackView
+    }()
     
     var item:Item?
 
@@ -28,6 +43,8 @@ class ItemDetailController: BaseController {
             self.itemImageListView, self.itemTitleLabel, self.itemImageListView
         ])
         
+        self.setRightButton(UIBarButtonItem(customView: self.barButtonStackView))
+        
         self.setupLayouts()
         self.setImageCollectionView()
 //        self.bindUI()
@@ -35,11 +52,13 @@ class ItemDetailController: BaseController {
     
     // MARK: - Function
     override func setupLayouts() {
+        let height:CGFloat = UIScreen.main.bounds.size.height
+
         NSLayoutConstraint.activate([
-            self.itemImageListView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            self.itemImageListView.topAnchor.constraint(equalTo: self.view.topAnchor),
             self.itemImageListView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.itemImageListView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            self.itemImageListView.heightAnchor.constraint(equalToConstant: 250),
+            self.itemImageListView.heightAnchor.constraint(equalToConstant: height / 2),
             
             self.itemTitleLabel.topAnchor.constraint(equalTo: self.itemImageListView.bottomAnchor),
             self.itemTitleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),

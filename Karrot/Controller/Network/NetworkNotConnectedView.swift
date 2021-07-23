@@ -34,4 +34,9 @@ class NetworkNotConnectedView: BaseView {
             self.contentLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
+    
+    // MARK: - Function
+    func setTitle(text: String?) -> Void {
+        self.contentLabel.text = text
+    }
 }

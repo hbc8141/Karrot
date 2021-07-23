@@ -14,7 +14,9 @@ class BaseNavigationController: UINavigationController {
         super.viewDidLoad()
         
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        
+        self.navigationBar.shadowImage = UIImage()
+        self.navigationBar.isTranslucent = true
+        self.navigationBar.backgroundColor = .clear
         
         self.view.backgroundColor = .white
         // Do any additional setup after loading the view.

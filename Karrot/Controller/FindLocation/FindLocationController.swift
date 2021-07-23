@@ -82,6 +82,8 @@ class FindLocationController: BaseController {
     }
     
     override func bindUI() {
+        self.addressTableView.rx.setDelegate(self).disposed(by: self.disposeBag)
+
         let searchMyTownButtonOb = self.notFoundLocationView.searchMyTownButton
             .rx.tap
             .share()

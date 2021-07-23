@@ -20,7 +20,12 @@ class ItemImageListView: BaseView {
         return collectionView
     }()
     
-    let pageControl:UIPageControl = UIPageControl()
+    let pageControl:UIPageControl = {
+        let pageControl:UIPageControl = UIPageControl()
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        
+        return pageControl
+    }()
     
     // MARK: - Life Cycle
     init() {
@@ -40,7 +45,7 @@ class ItemImageListView: BaseView {
     // MARK: - Function
     override func setupLayouts() {
         NSLayoutConstraint.activate([
-            self.itemImageCollectionView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            self.itemImageCollectionView.topAnchor.constraint(equalTo: self.topAnchor),
             self.itemImageCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.itemImageCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.itemImageCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
