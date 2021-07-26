@@ -31,6 +31,16 @@ class BaseButton: UIButton {
         
         self.setCornerButton()
     }
+    
+    init(fontIcon: FontAwesome, style:FontAwesomeStyle, textColor:UIColor = .white, size: CGSize) {
+        super.init(frame: .zero)
+
+        self.translatesAutoresizingMaskIntoConstraints = false
+        let iconImage:UIImage = UIImage.fontAwesomeIcon(name: fontIcon, style: style, textColor: textColor, size: size)
+        
+        self.setImage(iconImage, for: .normal)
+        self.setImage(iconImage, for: .highlighted)
+    }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

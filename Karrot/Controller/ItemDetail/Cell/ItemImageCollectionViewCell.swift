@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ItemImageCell: BaseCollectionViewCell {
+class ItemImageCollectionViewCell: BaseCollectionViewCell {
     
     // MARK: - Properties
     var imageUrl:String? {

@@ -43,11 +43,17 @@
 		CE64394126A897BB004D3614 /* NotFoundLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64394026A897BB004D3614 /* NotFoundLocationView.swift */; };
 		CE64394626A89EB7004D3614 /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64394526A89EB7004D3614 /* BaseTextField.swift */; };
 		CE64396026A9DB68004D3614 /* ItemDetailController+collectionview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64395F26A9DB68004D3614 /* ItemDetailController+collectionview.swift */; };
-		CE64396526A9DD33004D3614 /* ItemImgeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64396426A9DD33004D3614 /* ItemImgeCollectionView.swift */; };
 		CE64396A26A9E4C0004D3614 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64396926A9E4C0004D3614 /* Image.swift */; };
 		CE643A3426AB1484004D3614 /* FindLocationController+tableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A3326AB1484004D3614 /* FindLocationController+tableview.swift */; };
+		CE643A3C26ADCA36004D3614 /* TradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A3B26ADCA36004D3614 /* TradeView.swift */; };
+		CE643A4426AE900D004D3614 /* ItemImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A4326AE900D004D3614 /* ItemImageCell.swift */; };
+		CE643A4926AEF184004D3614 /* BasePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A4826AEF184004D3614 /* BasePageControl.swift */; };
+		CE643A5226AF06B3004D3614 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A5126AF06B3004D3614 /* UserCell.swift */; };
+		CE643A5A26AF0771004D3614 /* BaseProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A5926AF0771004D3614 /* BaseProgressView.swift */; };
+		CE643A5F26AF0813004D3614 /* ItemDetailController+tableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A5E26AF0813004D3614 /* ItemDetailController+tableview.swift */; };
+		CE643A6426AF1309004D3614 /* Seller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A6326AF1309004D3614 /* Seller.swift */; };
 		CEAEA9F426A6A6990015BAA0 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEA9F326A6A6990015BAA0 /* BaseCollectionView.swift */; };
-		CEAEA9F926A6A7860015BAA0 /* ItemImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEA9F826A6A7860015BAA0 /* ItemImageCell.swift */; };
+		CEAEA9F926A6A7860015BAA0 /* ItemImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEA9F826A6A7860015BAA0 /* ItemImageCollectionViewCell.swift */; };
 		CEAEAA0126A6A7AB0015BAA0 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEAA0026A6A7AB0015BAA0 /* BaseCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -113,11 +119,17 @@
 		CE64394026A897BB004D3614 /* NotFoundLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundLocationView.swift; sourceTree = "<group>"; };
 		CE64394526A89EB7004D3614 /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
 		CE64395F26A9DB68004D3614 /* ItemDetailController+collectionview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemDetailController+collectionview.swift"; sourceTree = "<group>"; };
-		CE64396426A9DD33004D3614 /* ItemImgeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImgeCollectionView.swift; sourceTree = "<group>"; };
 		CE64396926A9E4C0004D3614 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		CE643A3326AB1484004D3614 /* FindLocationController+tableview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FindLocationController+tableview.swift"; sourceTree = "<group>"; };
+		CE643A3B26ADCA36004D3614 /* TradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeView.swift; sourceTree = "<group>"; };
+		CE643A4326AE900D004D3614 /* ItemImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImageCell.swift; sourceTree = "<group>"; };
+		CE643A4826AEF184004D3614 /* BasePageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePageControl.swift; sourceTree = "<group>"; };
+		CE643A5126AF06B3004D3614 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		CE643A5926AF0771004D3614 /* BaseProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProgressView.swift; sourceTree = "<group>"; };
+		CE643A5E26AF0813004D3614 /* ItemDetailController+tableview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemDetailController+tableview.swift"; sourceTree = "<group>"; };
+		CE643A6326AF1309004D3614 /* Seller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seller.swift; sourceTree = "<group>"; };
 		CEAEA9F326A6A6990015BAA0 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
-		CEAEA9F826A6A7860015BAA0 /* ItemImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImageCell.swift; sourceTree = "<group>"; };
+		CEAEA9F826A6A7860015BAA0 /* ItemImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEAEAA0026A6A7AB0015BAA0 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -278,6 +290,8 @@
 				CEAEA9F326A6A6990015BAA0 /* BaseCollectionView.swift */,
 				CEAEAA0026A6A7AB0015BAA0 /* BaseCollectionViewCell.swift */,
 				CE64394526A89EB7004D3614 /* BaseTextField.swift */,
+				CE643A4826AEF184004D3614 /* BasePageControl.swift */,
+				CE643A5926AF0771004D3614 /* BaseProgressView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -313,6 +327,7 @@
 				CE64393B26A892F2004D3614 /* FindStreet.swift */,
 				CE53A7DD26A1C6F900BEF9D4 /* Item.swift */,
 				CE64396926A9E4C0004D3614 /* Image.swift */,
+				CE643A6326AF1309004D3614 /* Seller.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,10 +335,11 @@
 		CE53A7ED26A3CE3C00BEF9D4 /* ItemDetail */ = {
 			isa = PBXGroup;
 			children = (
+				CE643A5026AF0697004D3614 /* Cell */,
 				CE53A7EE26A3CE5B00BEF9D4 /* ItemDetailController.swift */,
-				CEAEA9F826A6A7860015BAA0 /* ItemImageCell.swift */,
 				CE64395F26A9DB68004D3614 /* ItemDetailController+collectionview.swift */,
-				CE64396426A9DD33004D3614 /* ItemImgeCollectionView.swift */,
+				CE643A3B26ADCA36004D3614 /* TradeView.swift */,
+				CE643A5E26AF0813004D3614 /* ItemDetailController+tableview.swift */,
 			);
 			path = ItemDetail;
 			sourceTree = "<group>";
@@ -345,6 +361,16 @@
 				CE64394026A897BB004D3614 /* NotFoundLocationView.swift */,
 			);
 			path = FindLocation;
+			sourceTree = "<group>";
+		};
+		CE643A5026AF0697004D3614 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE643A4326AE900D004D3614 /* ItemImageCell.swift */,
+				CEAEA9F826A6A7860015BAA0 /* ItemImageCollectionViewCell.swift */,
+				CE643A5126AF06B3004D3614 /* UserCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		E6738783A1FA0AB4B60672EC /* Frameworks */ = {
@@ -531,35 +557,41 @@
 			files = (
 				CE64396A26A9E4C0004D3614 /* Image.swift in Sources */,
 				CE53A7F726A3D00B00BEF9D4 /* UIImageView.swift in Sources */,
+				CE643A4926AEF184004D3614 /* BasePageControl.swift in Sources */,
 				CE53A78026A112AC00BEF9D4 /* BaseLabel.swift in Sources */,
 				CE53A7A326A1AA4B00BEF9D4 /* ItemCell.swift in Sources */,
 				CEAEAA0126A6A7AB0015BAA0 /* BaseCollectionViewCell.swift in Sources */,
 				CE53A7EF26A3CE5B00BEF9D4 /* ItemDetailController.swift in Sources */,
 				CE53A7A826A1AAF400BEF9D4 /* BaseTableViewCell.swift in Sources */,
-				CE64396526A9DD33004D3614 /* ItemImgeCollectionView.swift in Sources */,
 				CE53A75A26A1120A00BEF9D4 /* MainController.swift in Sources */,
 				CE53A70126A1109900BEF9D4 /* AppDelegate.swift in Sources */,
 				CE53A7DE26A1C6F900BEF9D4 /* Item.swift in Sources */,
 				CE64393626A892BB004D3614 /* FindLocationController.swift in Sources */,
 				CE53A7E926A1C97500BEF9D4 /* MainController+tableview.swift in Sources */,
 				CE53A74026A1110500BEF9D4 /* NetworkMonitor.swift in Sources */,
+				CE643A5226AF06B3004D3614 /* UserCell.swift in Sources */,
 				CE53A78626A1145100BEF9D4 /* NetworkViewModel.swift in Sources */,
+				CE643A5F26AF0813004D3614 /* ItemDetailController+tableview.swift in Sources */,
 				CE53A79E26A1A95300BEF9D4 /* BaseTableView.swift in Sources */,
 				CE64394626A89EB7004D3614 /* BaseTextField.swift in Sources */,
 				CE53A74F26A111B100BEF9D4 /* SplashController.swift in Sources */,
+				CE643A4426AE900D004D3614 /* ItemImageCell.swift in Sources */,
 				CE53A7BF26A1C1C100BEF9D4 /* UIView.swift in Sources */,
 				CE64396026A9DB68004D3614 /* ItemDetailController+collectionview.swift in Sources */,
 				CE64393726A892BB004D3614 /* FindLocationCell.swift in Sources */,
-				CEAEA9F926A6A7860015BAA0 /* ItemImageCell.swift in Sources */,
+				CEAEA9F926A6A7860015BAA0 /* ItemImageCollectionViewCell.swift in Sources */,
 				CE53A77E26A112AC00BEF9D4 /* BaseButton.swift in Sources */,
 				CE53A79126A1A80D00BEF9D4 /* BaseNavigationController.swift in Sources */,
+				CE643A3C26ADCA36004D3614 /* TradeView.swift in Sources */,
 				CE53A70B26A1109900BEF9D4 /* Karrot.xcdatamodeld in Sources */,
+				CE643A5A26AF0771004D3614 /* BaseProgressView.swift in Sources */,
 				CE643A3426AB1484004D3614 /* FindLocationController+tableview.swift in Sources */,
 				CE64394126A897BB004D3614 /* NotFoundLocationView.swift in Sources */,
 				CE64393C26A892F2004D3614 /* FindStreet.swift in Sources */,
 				CE53A77F26A112AC00BEF9D4 /* BaseImageView.swift in Sources */,
 				CE53A79926A1A93500BEF9D4 /* BaseTableController.swift in Sources */,
 				CE53A76F26A1128700BEF9D4 /* NetworkNotConnectedView.swift in Sources */,
+				CE643A6426AF1309004D3614 /* Seller.swift in Sources */,
 				CEAEA9F426A6A6990015BAA0 /* BaseCollectionView.swift in Sources */,
 				CE53A77726A1129400BEF9D4 /* BaseView.swift in Sources */,
 				CE53A76626A1123C00BEF9D4 /* BaseController.swift in Sources */,
