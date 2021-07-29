@@ -12,7 +12,6 @@ import RxCocoa
 class ItemDetailController: BaseController {
 
     // MARK: - Properties
-
     private let itemTitleLabel:BaseLabel = BaseLabel()
     
     private let itemInfoTableview:BaseTableView = {
@@ -43,6 +42,13 @@ class ItemDetailController: BaseController {
         return stackView
     }()
     
+    private lazy var backgroundView:BaseView = {
+        let view:BaseView = BaseView(color: .clear)
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchUpView(_:))))
+
+        return view
+    }()
+    
     var item:Item?
     
     private let seller:Seller = Seller()
@@ -53,23 +59,21 @@ class ItemDetailController: BaseController {
 
         self.view.addSubviews(views: [
             self.itemInfoTableview,
-//            self.itemTitleLabel,
-            self.tradeView
+            self.tradeView,
+            self.backgroundView
         ])
         
         self.view.addSubview(self.tradeView)
+        self.backgroundView.isHidden = true
         
         self.setRightButton(UIBarButtonItem(customView: self.barButtonStackView))
         
         self.setupLayouts()
         self.setTableView()
-//        self.bindUI()
     }
     
     // MARK: - Function
     override func setupLayouts() {
-        let height:CGFloat = UIScreen.main.bounds.size.height
-
         NSLayoutConstraint.activate([
             self.itemInfoTableview.topAnchor.constraint(equalTo: self.view.topAnchor),
             self.itemInfoTableview.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -81,28 +85,22 @@ class ItemDetailController: BaseController {
             self.tradeView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             self.tradeView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             
-//            self.itemTitleLabel.topAnchor.constraint(equalTo: self.itemImageListView.bottomAnchor),
-//            self.itemTitleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-//            self.itemTitleLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.backgroundView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.backgroundView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.backgroundView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.backgroundView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
     
-    override func bindUI() {
-        
+    @objc private func touchUpView(_ sender:Any) {
+        self.dismiss(animated: true) {
+            self.backgroundView.isHidden = true
+        }
     }
     
+    // 테이블뷰 설정
     fileprivate func setTableView() {
         self.itemInfoTableview.rx.setDelegate(self).disposed(by: self.disposeBag)
-        
-        
-//        self.itemImageListView.itemImageCollectionView.register(ItemImageCell.self, forCellWithReuseIdentifier: "cell")
-//        self.itemImageListView.itemImageCollectionView.rx.setDelegate(self).disposed(by: self.disposeBag)
-        
-//        let cellType = Observable.of(item?.imageUrl).flatMap { (imageUrl:[String]?) -> Observable<[String]> in
-//            guard let imageUrl:[String] = imageUrl else { return .empty() }
-//
-//            return .just(imageUrl)
-//        }
         
         let cellTypeOb = Observable.of(item).flatMap({ (item:Item?) -> Observable<Item> in
             guard let item:Item = item else { return .empty() }
@@ -112,9 +110,10 @@ class ItemDetailController: BaseController {
         
         let pageControlCount = cellTypeOb.map { $0.imageUrl.count }.share()
         
-        Observable.of([item as Any, seller]).map { [$0] }.bind(to: self.itemInfoTableview.rx.items) { (tableView:UITableView, row:Int, items:[Any]) -> BaseTableViewCell in
+        Observable.of([item as Any, seller]).bind(to: self.itemInfoTableview.rx.items) { (tableView:UITableView, row:Int, item:Any) -> BaseTableViewCell in
+            print(row)
             if row == 0 {
-                guard let item:Item = items[row] as? Item else { return ItemImageCell() }
+                guard let item:Item = item as? Item else { return ItemImageCell() }
                 guard let cell:ItemImageCell = tableView.dequeueReusableCell(withIdentifier: "imageCell") as? ItemImageCell else { return ItemImageCell() }
                 cell.item = item
                 
@@ -136,14 +135,16 @@ class ItemDetailController: BaseController {
                 
                 return cell
             } else {
-                guard let item:Seller = items[row] as? Seller else { return ItemImageCell() }
-                guard let cell:ItemImageCell = tableView.dequeueReusableCell(withIdentifier: "imageCell") as? ItemImageCell else { return ItemImageCell() }
+                guard let seller:Seller = item as? Seller else { return UserCell() }
+                guard let cell:UserCell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserCell else { return UserCell() }
+                cell.seller = seller
+                
+                return cell
             }
-
-            return BaseTableViewCell()
         }.disposed(by: self.disposeBag)
     }
     
+    // 우측상단 메뉴 클릭
     @objc private func touchUpEllipsisVButton(_ sender: UIButton) -> Void {
         let alertController:UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "신고하기", style: .default, handler: nil))
@@ -153,14 +154,12 @@ class ItemDetailController: BaseController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    // 공유버튼 클릭
     @objc private func touchUpShareButton(_ sender: UIButton) -> Void {
-        // Setting description
         let firstActivityItem = "Description you want.."
 
-        // Setting url
         let secondActivityItem : NSURL = NSURL(string: "http://your-url.com/")!
         
-        // If you want to use an image
         let image : UIImage = UIImage.image(name: .carrot) ?? UIImage()
         
         let controller = UIActivityViewController(activityItems: [
@@ -179,6 +178,8 @@ class ItemDetailController: BaseController {
             .message
         ]
         controller.isModalInPresentation = true
-        self.present(controller, animated: true, completion: nil)
+        self.present(controller, animated: true) {
+            self.backgroundView.isHidden = false
+        }
     }
 }

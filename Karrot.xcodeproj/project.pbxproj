@@ -52,6 +52,8 @@
 		CE643A5A26AF0771004D3614 /* BaseProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A5926AF0771004D3614 /* BaseProgressView.swift */; };
 		CE643A5F26AF0813004D3614 /* ItemDetailController+tableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A5E26AF0813004D3614 /* ItemDetailController+tableview.swift */; };
 		CE643A6426AF1309004D3614 /* Seller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A6326AF1309004D3614 /* Seller.swift */; };
+		CE643A7126AFFBEC004D3614 /* ItemDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A7026AFFBEC004D3614 /* ItemDetailCell.swift */; };
+		CE643A7626B03070004D3614 /* ItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A7526B03070004D3614 /* ItemDetail.swift */; };
 		CEAEA9F426A6A6990015BAA0 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEA9F326A6A6990015BAA0 /* BaseCollectionView.swift */; };
 		CEAEA9F926A6A7860015BAA0 /* ItemImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEA9F826A6A7860015BAA0 /* ItemImageCollectionViewCell.swift */; };
 		CEAEAA0126A6A7AB0015BAA0 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEAA0026A6A7AB0015BAA0 /* BaseCollectionViewCell.swift */; };
@@ -128,6 +130,8 @@
 		CE643A5926AF0771004D3614 /* BaseProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProgressView.swift; sourceTree = "<group>"; };
 		CE643A5E26AF0813004D3614 /* ItemDetailController+tableview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemDetailController+tableview.swift"; sourceTree = "<group>"; };
 		CE643A6326AF1309004D3614 /* Seller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seller.swift; sourceTree = "<group>"; };
+		CE643A7026AFFBEC004D3614 /* ItemDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailCell.swift; sourceTree = "<group>"; };
+		CE643A7526B03070004D3614 /* ItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetail.swift; sourceTree = "<group>"; };
 		CEAEA9F326A6A6990015BAA0 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 		CEAEA9F826A6A7860015BAA0 /* ItemImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEAEAA0026A6A7AB0015BAA0 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -328,6 +332,7 @@
 				CE53A7DD26A1C6F900BEF9D4 /* Item.swift */,
 				CE64396926A9E4C0004D3614 /* Image.swift */,
 				CE643A6326AF1309004D3614 /* Seller.swift */,
+				CE643A7526B03070004D3614 /* ItemDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 			children = (
 				CE643A5026AF0697004D3614 /* Cell */,
 				CE53A7EE26A3CE5B00BEF9D4 /* ItemDetailController.swift */,
+				CE643A7026AFFBEC004D3614 /* ItemDetailCell.swift */,
 				CE64395F26A9DB68004D3614 /* ItemDetailController+collectionview.swift */,
 				CE643A3B26ADCA36004D3614 /* TradeView.swift */,
 				CE643A5E26AF0813004D3614 /* ItemDetailController+tableview.swift */,
@@ -556,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE64396A26A9E4C0004D3614 /* Image.swift in Sources */,
+				CE643A7626B03070004D3614 /* ItemDetail.swift in Sources */,
 				CE53A7F726A3D00B00BEF9D4 /* UIImageView.swift in Sources */,
 				CE643A4926AEF184004D3614 /* BasePageControl.swift in Sources */,
 				CE53A78026A112AC00BEF9D4 /* BaseLabel.swift in Sources */,
@@ -592,6 +599,7 @@
 				CE53A79926A1A93500BEF9D4 /* BaseTableController.swift in Sources */,
 				CE53A76F26A1128700BEF9D4 /* NetworkNotConnectedView.swift in Sources */,
 				CE643A6426AF1309004D3614 /* Seller.swift in Sources */,
+				CE643A7126AFFBEC004D3614 /* ItemDetailCell.swift in Sources */,
 				CEAEA9F426A6A6990015BAA0 /* BaseCollectionView.swift in Sources */,
 				CE53A77726A1129400BEF9D4 /* BaseView.swift in Sources */,
 				CE53A76626A1123C00BEF9D4 /* BaseController.swift in Sources */,

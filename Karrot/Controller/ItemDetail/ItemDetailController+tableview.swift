@@ -14,8 +14,10 @@ extension ItemDetailController: UITableViewDelegate {
         switch row {
             case 0:
                 return tableView.frame.size.height/2
+            case 1:
+                return 100
             default:
-                return 50
+                return 75
         }
     }
 }
