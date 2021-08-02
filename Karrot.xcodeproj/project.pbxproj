@@ -54,6 +54,8 @@
 		CE643A6426AF1309004D3614 /* Seller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A6326AF1309004D3614 /* Seller.swift */; };
 		CE643A7126AFFBEC004D3614 /* ItemDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A7026AFFBEC004D3614 /* ItemDetailCell.swift */; };
 		CE643A7626B03070004D3614 /* ItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A7526B03070004D3614 /* ItemDetail.swift */; };
+		CE643A8426B813A9004D3614 /* PhoneNumverVerificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A8326B813A8004D3614 /* PhoneNumverVerificationController.swift */; };
+		CE643A8C26B831D3004D3614 /* VerficationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE643A8B26B831D3004D3614 /* VerficationView.swift */; };
 		CEAEA9F426A6A6990015BAA0 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEA9F326A6A6990015BAA0 /* BaseCollectionView.swift */; };
 		CEAEA9F926A6A7860015BAA0 /* ItemImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEA9F826A6A7860015BAA0 /* ItemImageCollectionViewCell.swift */; };
 		CEAEAA0126A6A7AB0015BAA0 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEAA0026A6A7AB0015BAA0 /* BaseCollectionViewCell.swift */; };
@@ -132,6 +134,8 @@
 		CE643A6326AF1309004D3614 /* Seller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seller.swift; sourceTree = "<group>"; };
 		CE643A7026AFFBEC004D3614 /* ItemDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailCell.swift; sourceTree = "<group>"; };
 		CE643A7526B03070004D3614 /* ItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetail.swift; sourceTree = "<group>"; };
+		CE643A8326B813A8004D3614 /* PhoneNumverVerificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumverVerificationController.swift; sourceTree = "<group>"; };
+		CE643A8B26B831D3004D3614 /* VerficationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerficationView.swift; sourceTree = "<group>"; };
 		CEAEA9F326A6A6990015BAA0 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 		CEAEA9F826A6A7860015BAA0 /* ItemImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEAEAA0026A6A7AB0015BAA0 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -251,6 +255,7 @@
 		CE53A75326A111DC00BEF9D4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CE643A8226B8135E004D3614 /* PhoneNumberVerification */,
 				CE64393226A892BA004D3614 /* FindLocation */,
 				CE64393026A892BA004D3614 /* Start */,
 				CE53A7ED26A3CE3C00BEF9D4 /* ItemDetail */,
@@ -377,6 +382,15 @@
 				CE643A5126AF06B3004D3614 /* UserCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		CE643A8226B8135E004D3614 /* PhoneNumberVerification */ = {
+			isa = PBXGroup;
+			children = (
+				CE643A8326B813A8004D3614 /* PhoneNumverVerificationController.swift */,
+				CE643A8B26B831D3004D3614 /* VerficationView.swift */,
+			);
+			path = PhoneNumberVerification;
 			sourceTree = "<group>";
 		};
 		E6738783A1FA0AB4B60672EC /* Frameworks */ = {
@@ -568,6 +582,7 @@
 				CE53A78026A112AC00BEF9D4 /* BaseLabel.swift in Sources */,
 				CE53A7A326A1AA4B00BEF9D4 /* ItemCell.swift in Sources */,
 				CEAEAA0126A6A7AB0015BAA0 /* BaseCollectionViewCell.swift in Sources */,
+				CE643A8C26B831D3004D3614 /* VerficationView.swift in Sources */,
 				CE53A7EF26A3CE5B00BEF9D4 /* ItemDetailController.swift in Sources */,
 				CE53A7A826A1AAF400BEF9D4 /* BaseTableViewCell.swift in Sources */,
 				CE53A75A26A1120A00BEF9D4 /* MainController.swift in Sources */,
@@ -582,6 +597,7 @@
 				CE53A79E26A1A95300BEF9D4 /* BaseTableView.swift in Sources */,
 				CE64394626A89EB7004D3614 /* BaseTextField.swift in Sources */,
 				CE53A74F26A111B100BEF9D4 /* SplashController.swift in Sources */,
+				CE643A8426B813A9004D3614 /* PhoneNumverVerificationController.swift in Sources */,
 				CE643A4426AE900D004D3614 /* ItemImageCell.swift in Sources */,
 				CE53A7BF26A1C1C100BEF9D4 /* UIView.swift in Sources */,
 				CE64396026A9DB68004D3614 /* ItemDetailController+collectionview.swift in Sources */,

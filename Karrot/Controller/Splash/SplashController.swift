@@ -10,7 +10,7 @@ import UIKit
 class SplashController: BaseController {
 
     // MARK: - Properties
-    private let imageView:BaseImageView = BaseImageView(image: UIImage.image(name: .carrot), contentMode: .scaleAspectFit)
+    private let imageView:BaseImageView = BaseImageView(image: .carrot, contentMode: .scaleAspectFit)
     
     private let loadingIndicator:UIActivityIndicatorView = UIActivityIndicatorView(style: .medium)
     

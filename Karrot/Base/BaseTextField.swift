@@ -10,7 +10,7 @@ import UIKit
 class BaseTextField: UITextField {
 
     // MARK: - Life Cycle
-    init(text: String?, placeholder: String?) {
+    init(text: String? = nil, placeholder: String? = nil) {
         super.init(frame: .zero)
 
         self.translatesAutoresizingMaskIntoConstraints = false

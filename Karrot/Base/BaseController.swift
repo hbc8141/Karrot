@@ -58,8 +58,12 @@ class BaseController: UIViewController {
     }
     
     // 네비게이션바 보이기
-    func showNavBar() -> Void {
+    func showNavBar(title: String? = nil) -> Void {
         self.navigationController?.navigationBar.isHidden = false
+        
+        if let title:String = title {
+            self.navigationItem.title = title
+        }
     }
     
     // 다음화면으로 이동

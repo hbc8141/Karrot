@@ -10,7 +10,7 @@ import UIKit
 class NotFoundLocationView: BaseView {
 
     // MARK: - Properties
-    private let houseImageView:BaseImageView = BaseImageView(image: UIImage.image(name: .house))
+    private let houseImageView:BaseImageView = BaseImageView(image: .house)
     
     private let titleLabel:BaseLabel = BaseLabel(title: "현재 위치로 동네를 받아오지 못했어요.\n내 동네 이름으로 검색해보세요!", textColor: .gray, textAlignment: .center)
     

@@ -23,4 +23,6 @@ class BaseView: UIView {
     
     // MARK: - Function
     func setupLayouts() -> Void {}
+    
+    func bindUI() -> Void {}
 }

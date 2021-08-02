@@ -10,12 +10,15 @@ import UIKit
 class BaseImageView: UIImageView {
     
     // MARK: - Life Cycle
-    init(image:UIImage? = nil, contentMode: UIView.ContentMode = .scaleToFill) {
+    init(image:Image? = nil, contentMode: UIView.ContentMode = .scaleToFill) {
         super.init(frame: .zero)
         
         self.translatesAutoresizingMaskIntoConstraints = false
         self.contentMode = contentMode
-        self.image = image
+        
+        if let image:Image = image {
+            self.image = UIImage(named: image.rawValue)
+        }
     }
     
     required init?(coder: NSCoder) {
